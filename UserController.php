@@ -28,8 +28,8 @@ class UserController extends Controller {
 
 		Yii::app()->openid->identity = 'https://www.google.com/accounts/o8/id';
 		Yii::app()->openid->required = array('namePerson/friendly', 'contact/email');
-		Yii::app()->openid->realm = (!empty($_SERVER['HTTPS']) ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'];
-		Yii::app()->openid->returnUrl = Yii::app()->openid->realm.$_SERVER['REQUEST_URI'];
+		Yii::app()->openid->realm = Yii::app()->request->hostInfo;
+		Yii::app()->openid->returnUrl = Yii::app()->request->hostInfo.Yii::app()->request->requestUri;
 		$url = Yii::app()->openid->authUrl();
 		$this->redirect($url);
 	}

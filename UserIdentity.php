@@ -19,7 +19,10 @@ class UserIdentity extends CUserIdentity {
 			} elseif(Yii::app()->openid->validate()) {
 				$this->errorCode = self::ERROR_NONE;
 				$this->username = $this->openid['openid_ext1_value_contact_email'];
+
+				// save/load user information from wherever and return the ID
 				$this->id = User::syncWithDb($this->openid);
+
 				Yii::app()->user->login($this);
 			}
 			return $this->errorCode;
