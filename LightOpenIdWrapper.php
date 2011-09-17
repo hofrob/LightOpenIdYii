@@ -1,6 +1,6 @@
 <?php
 
-require_once 'LightOpenID'.DIRECTORY_SEPARATOR.'LightOpenID.php';
+require_once 'lightopenid'.DIRECTORY_SEPARATOR.'openid.php';
 
 class LightOpenIDWrapper extends CApplicationComponent {
 
