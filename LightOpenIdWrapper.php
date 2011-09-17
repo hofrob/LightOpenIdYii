@@ -17,16 +17,10 @@ class LightOpenIDWrapper extends CApplicationComponent {
 	}
 
 	public function __get($name) {
-		if(property_exists($this->__lightopenid, $name))
-			return $this->__lightopenid->$name;
-		else
-			return $this->__lightopenid->__get($name);
+		return $this->__lightopenid->$name;
 	}
 
 	public function __set($name, $value) {
-		if(property_exists($this->__lightopenid, $name))
-			return $this->__lightopenid->$name = $value;
-		else
-			return $this->__lightopenid->__set($name, $value);
+		return $this->__lightopenid->$name = $value;
 	}
 }
